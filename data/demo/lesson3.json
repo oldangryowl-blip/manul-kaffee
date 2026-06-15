@@ -1,0 +1,50 @@
+{
+  "lessonNumber": 3,
+  "theme": "morgen",
+  "wordIds": ["w_muede", "w_aufstehen", "w_heute"],
+  "story": {
+    "title_uk": "Важкий ранок",
+    "lines": [
+      { "de": "Heute ist Morgen.", "uk": "Сьогодні ранок.", "word_ids": ["w_heute", "w_morgen"] },
+      { "de": "Manul steht auf.", "uk": "Манул встає.", "word_ids": ["w_aufstehen"] },
+      { "de": "Manul ist müde.", "uk": "Манул втомлений.", "word_ids": ["w_muede"] },
+      { "de": "Manul trinkt Kaffee.", "uk": "Манул п'є каву.", "word_ids": ["w_trinken", "w_kaffee"] },
+      { "de": "Jetzt ist Manul nicht müde.", "uk": "Тепер Манул не втомлений.", "word_ids": ["w_muede"] },
+      { "de": "Kaffee ist gut!", "uk": "Кава — це добре!", "word_ids": ["w_kaffee", "w_gut"] }
+    ]
+  },
+  "dialog": {
+    "turns": [
+      { "speaker": "manul", "de": "Guten Morgen... *gähnt*", "uk": "Доброго ранку... *позіхає*" },
+      {
+        "speaker": "question",
+        "question_de": "Wie sagt man «втомлений» auf Deutsch?",
+        "question_uk": "Як сказати «втомлений» німецькою?",
+        "expected_de": "müde",
+        "word_ids": ["w_muede"]
+      },
+      { "speaker": "manul", "de": "Ja, Manul ist auch müde.", "uk": "Так, Манул теж втомлений." },
+      {
+        "speaker": "question",
+        "question_de": "Was bedeutet «aufstehen»?",
+        "question_uk": "Що означає «aufstehen»?",
+        "expected_de": "вставати",
+        "word_ids": ["w_aufstehen"]
+      },
+      {
+        "speaker": "question",
+        "question_de": "Sage: Heute stehe ich auf.",
+        "question_uk": "Скажи: Сьогодні я встаю.",
+        "expected_de": "Heute stehe ich auf",
+        "word_ids": ["w_heute", "w_aufstehen"]
+      },
+      {
+        "speaker": "question",
+        "question_de": "Sage: Ich bin müde.",
+        "question_uk": "Скажи: Я втомлений/а.",
+        "expected_de": "Ich bin müde",
+        "word_ids": ["w_muede"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "lessonNumber": 2,
+  "theme": "morgen",
+  "wordIds": ["w_morgen", "w_trinken", "w_gut"],
+  "story": {
+    "title_uk": "Ранок Манула",
+    "lines": [
+      { "de": "Guten Morgen!", "uk": "Доброго ранку!", "word_ids": ["w_morgen", "w_gut"] },
+      { "de": "Der Morgen ist gut.", "uk": "Ранок гарний.", "word_ids": ["w_morgen", "w_gut"] },
+      { "de": "Manul trinkt Kaffee.", "uk": "Манул п'є каву.", "word_ids": ["w_trinken", "w_kaffee"] },
+      { "de": "Guten Morgen, Kaffee!", "uk": "Доброго ранку, каво!", "word_ids": ["w_morgen", "w_gut", "w_kaffee"] }
+    ]
+  },
+  "dialog": {
+    "turns": [
+      { "speaker": "manul", "de": "Morgen!", "uk": "Ранок!" },
+      {
+        "speaker": "question",
+        "question_de": "Wie sagt man «доброго ранку» auf Deutsch?",
+        "question_uk": "Як сказати «доброго ранку» німецькою?",
+        "expected_de": "Guten Morgen",
+        "word_ids": ["w_morgen", "w_gut"]
+      },
+      { "speaker": "manul", "de": "Gut! Manul trinkt Kaffee.", "uk": "Добре! Манул п'є каву." },
+      {
+        "speaker": "question",
+        "question_de": "Was bedeutet «trinken»?",
+        "question_uk": "Що означає «trinken»?",
+        "expected_de": "пити",
+        "word_ids": ["w_trinken"]
+      },
+      {
+        "speaker": "question",
+        "question_de": "Sage: Ich trinke Kaffee.",
+        "question_uk": "Скажи: Я п'ю каву.",
+        "expected_de": "Ich trinke Kaffee",
+        "word_ids": ["w_trinken", "w_kaffee"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#e8a87c">
+  <meta name="description" content="Вивчай німецьку з Манулом Білящем">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <title>Манул сказав: Kaffee</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Splash -->
+    <section id="screen-splash" class="screen active">
+      <div class="splash-content">
+        <div class="manul-avatar manul-large">🐱</div>
+        <h1>Манул сказав:<br><span class="accent">Kaffee</span></h1>
+        <p class="subtitle">Вивчай німецьку без страху</p>
+        <div class="loader"></div>
+      </div>
+    </section>
+
+    <!-- Welcome / First Run -->
+    <section id="screen-welcome" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar">🐱</div>
+        <h2>Привіт! Я — Манул Біляш.</h2>
+        <p>Будемо вчити німецьку разом. Без оцінок, без тиску — просто крок за кроком.</p>
+        <p>Як до тебе звертатися?</p>
+        <form id="form-profile">
+          <div class="field">
+            <label for="input-name">Ім'я або псевдонім</label>
+            <input type="text" id="input-name" required maxlength="30" autocomplete="given-name" placeholder="Наприклад: Олена">
+          </div>
+          <div class="field">
+            <label>Стать</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="gender" value="male"> Чоловік</label>
+              <label class="radio-label"><input type="radio" name="gender" value="female"> Жінка</label>
+              <label class="radio-label"><input type="radio" name="gender" value="none" checked> Не вказувати</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="select-age">Вікова група</label>
+            <select id="select-age">
+              <option value="15-19">15–19</option>
+              <option value="20-24">20–24</option>
+              <option value="25-29">25–29</option>
+              <option value="30-34" selected>30–34</option>
+              <option value="35-39">35–39</option>
+              <option value="40-44">40–44</option>
+              <option value="45-49">45–49</option>
+              <option value="50-54">50–54</option>
+              <option value="55-59">55–59</option>
+              <option value="60+">60+</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Далі</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- API Key Setup -->
+    <section id="screen-apikey" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar">🐱</div>
+        <h2>Налаштування ШІ</h2>
+        <p>Щоб я міг генерувати уроки, мені потрібен твій API-ключ Google Gemini. Це безкоштовно!</p>
+        <div class="info-card">
+          <h3>Як отримати ключ:</h3>
+          <ol>
+            <li>Перейди на <strong>aistudio.google.com</strong></li>
+            <li>Увійди з Google-акаунтом</li>
+            <li>Натисни «Get API key» → «Create API key»</li>
+            <li>Скопіюй ключ і встав сюди</li>
+          </ol>
+        </div>
+        <div class="field">
+          <label for="input-apikey">API-ключ Gemini</label>
+          <input type="password" id="input-apikey" placeholder="AIza...">
+          <button type="button" id="btn-toggle-key" class="btn-icon" aria-label="Показати ключ">👁</button>
+        </div>
+        <div id="apikey-status" class="status-msg"></div>
+        <div class="disclosure">
+          <p>⚠️ Текст запитів надсилатиметься до Google Gemini за твоїм ключем. Ключ зберігається лише на твоєму пристрої. На безкоштовному тарифі Google може використовувати запити для покращення моделей.</p>
+        </div>
+        <div class="btn-row">
+          <button id="btn-save-key" class="btn btn-primary" disabled>Перевірити й зберегти</button>
+          <button id="btn-skip-key" class="btn btn-secondary">Спробувати демо</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home / Dashboard -->
+    <section id="screen-home" class="screen">
+      <div class="screen-inner">
+        <header class="home-header">
+          <div class="manul-avatar manul-small">🐱</div>
+          <div class="greeting" id="home-greeting"></div>
+          <button id="btn-settings" class="btn-icon" aria-label="Налаштування">⚙️</button>
+        </header>
+
+        <div id="review-banner" class="banner" style="display:none">
+          <p id="review-banner-text"></p>
+          <button id="btn-start-review" class="btn btn-accent">Повторити</button>
+        </div>
+
+        <div class="home-actions">
+          <button id="btn-start-lesson" class="btn btn-primary btn-large">
+            <span class="btn-icon-left">📖</span>
+            Почати урок
+          </button>
+          <button id="btn-talk-mode" class="btn btn-secondary btn-large">
+            <span class="btn-icon-left">💬</span>
+            Розкажи свій день
+          </button>
+        </div>
+
+        <div id="achievements-preview" class="card">
+          <h3>Мої вміння</h3>
+          <ul id="achievements-list" class="achievements"></ul>
+        </div>
+
+        <div id="word-count-card" class="card">
+          <div class="stat">
+            <span class="stat-number" id="stat-words-learned">0</span>
+            <span class="stat-label">слів вивчено</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="stat-lessons-done">0</span>
+            <span class="stat-label">уроків пройдено</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Word Count Selection -->
+    <section id="screen-wordcount" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar">🐱</div>
+        <h2 id="wordcount-greeting"></h2>
+        <p>Скільки нових слів сьогодні?</p>
+        <div class="word-count-selector">
+          <button class="btn-circle" id="btn-wc-minus">−</button>
+          <span class="word-count-value" id="word-count-value">3</span>
+          <button class="btn-circle" id="btn-wc-plus">+</button>
+        </div>
+        <p id="wordcount-warning" class="warning" style="display:none"></p>
+        <button id="btn-start-with-count" class="btn btn-primary">Починаємо!</button>
+      </div>
+    </section>
+
+    <!-- Lesson -->
+    <section id="screen-lesson" class="screen">
+      <div class="screen-inner">
+        <div class="lesson-progress">
+          <div class="progress-bar"><div class="progress-fill" id="lesson-progress-fill"></div></div>
+          <span class="progress-text" id="lesson-progress-text"></span>
+        </div>
+
+        <div id="lesson-content" class="lesson-content">
+          <!-- Dynamic lesson content goes here -->
+        </div>
+
+        <div class="lesson-nav">
+          <button id="btn-lesson-next" class="btn btn-primary">Далі</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dialog / Quiz -->
+    <section id="screen-dialog" class="screen">
+      <div class="screen-inner">
+        <div class="dialog-header">
+          <div class="manul-avatar manul-small">🐱</div>
+          <h2>Міні-діалог</h2>
+        </div>
+        <div id="dialog-messages" class="dialog-messages"></div>
+        <div id="dialog-input-area" class="dialog-input-area">
+          <input type="text" id="dialog-input" placeholder="Твоя відповідь..." autocomplete="off">
+          <button id="btn-dialog-send" class="btn btn-primary">↑</button>
+        </div>
+        <div id="dialog-hint-area" class="dialog-hint-area" style="display:none">
+          <button id="btn-dialog-hint" class="btn btn-secondary btn-small">Підказка</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section id="screen-story" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar">🐱</div>
+        <h2 id="story-title"></h2>
+        <div id="story-lines" class="story-lines"></div>
+        <button id="btn-story-done" class="btn btn-primary">Далі</button>
+      </div>
+    </section>
+
+    <!-- Lesson Summary -->
+    <section id="screen-summary" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar">🐱</div>
+        <h2 id="summary-title"></h2>
+        <p id="summary-message"></p>
+        <div id="summary-words" class="summary-words"></div>
+        <div id="summary-schedule" class="card">
+          <h3>План повторення</h3>
+          <p id="schedule-text"></p>
+        </div>
+        <button id="btn-summary-home" class="btn btn-primary">На головну</button>
+      </div>
+    </section>
+
+    <!-- Review Session -->
+    <section id="screen-review" class="screen">
+      <div class="screen-inner">
+        <div class="manul-avatar manul-small">🐱</div>
+        <h2>Повторення</h2>
+        <div id="review-content" class="review-content"></div>
+        <div id="review-input-area" class="dialog-input-area">
+          <input type="text" id="review-input" placeholder="Твоя відповідь..." autocomplete="off">
+          <button id="btn-review-send" class="btn btn-primary">↑</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Talk Mode -->
+    <section id="screen-talk" class="screen">
+      <div class="screen-inner">
+        <div class="dialog-header">
+          <div class="manul-avatar manul-small">🐱</div>
+          <h2>Розкажи свій день</h2>
+          <button id="btn-talk-close" class="btn-icon" aria-label="Закрити">✕</button>
+        </div>
+        <div id="talk-messages" class="dialog-messages"></div>
+        <div class="dialog-input-area">
+          <input type="text" id="talk-input" placeholder="Напиши щось німецькою..." autocomplete="off">
+          <button id="btn-talk-send" class="btn btn-primary">↑</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="screen-settings" class="screen">
+      <div class="screen-inner">
+        <div class="settings-header">
+          <button id="btn-settings-back" class="btn-icon" aria-label="Назад">←</button>
+          <h2>Налаштування</h2>
+        </div>
+
+        <div class="card">
+          <h3>Профіль</h3>
+          <div class="field">
+            <label for="settings-name">Ім'я</label>
+            <input type="text" id="settings-name" maxlength="30">
+          </div>
+          <button id="btn-save-profile" class="btn btn-secondary btn-small">Зберегти</button>
+        </div>
+
+        <div class="card">
+          <h3>API-ключ</h3>
+          <p id="settings-key-status"></p>
+          <div class="btn-row">
+            <button id="btn-change-key" class="btn btn-secondary btn-small">Змінити ключ</button>
+            <button id="btn-delete-key" class="btn btn-danger btn-small">Видалити ключ</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Рівень підказок</h3>
+          <select id="settings-hint-level">
+            <option value="0">0 — Без підказок</option>
+            <option value="1">1 — Перша літера</option>
+            <option value="2" selected>2 — Переклад</option>
+            <option value="3">3 — Частина відповіді</option>
+            <option value="4">4 — Повна відповідь</option>
+          </select>
+        </div>
+
+        <div class="card">
+          <h3>Дані</h3>
+          <div class="btn-row">
+            <button id="btn-export" class="btn btn-secondary btn-small">Експорт прогресу</button>
+            <button id="btn-import" class="btn btn-secondary btn-small">Імпорт прогресу</button>
+          </div>
+          <input type="file" id="import-file" accept=".json" style="display:none">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Toast notifications -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/gemini.js"></script>
+  <script src="js/srs.js"></script>
+  <script src="js/lesson.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>

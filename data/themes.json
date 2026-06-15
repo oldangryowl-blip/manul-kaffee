@@ -1,0 +1,21 @@
+[
+  {
+    "id": "morgen",
+    "name": "Ранок. Початок дня",
+    "name_de": "Morgen. Tagesbeginn",
+    "order": 1,
+    "wordIds": [
+      "w_morgen", "w_kaffee", "w_trinken", "w_muede", "w_aufstehen",
+      "w_fenster", "w_arbeit", "w_ruhig", "w_heute", "w_ich",
+      "w_gut", "w_tag", "w_beginnen", "w_fruehstueck", "w_essen",
+      "w_wasser", "w_brot", "w_gehen", "w_Zeit", "w_schlafen"
+    ],
+    "achievements": [
+      { "id": "ach_greet", "description": "Можу привітатися", "requiredWords": ["w_morgen", "w_gut", "w_tag"] },
+      { "id": "ach_coffee", "description": "Можу сказати, що хочу каву", "requiredWords": ["w_kaffee", "w_trinken", "w_ich"] },
+      { "id": "ach_tired", "description": "Можу сказати, що втомився/лась", "requiredWords": ["w_muede", "w_ich", "w_schlafen"] },
+      { "id": "ach_morning", "description": "Можу розповісти про свій ранок", "requiredWords": ["w_morgen", "w_aufstehen", "w_fruehstueck", "w_kaffee", "w_trinken"] },
+      { "id": "ach_work", "description": "Можу сказати, що йду на роботу", "requiredWords": ["w_arbeit", "w_gehen", "w_heute"] }
+    ]
+  }
+]

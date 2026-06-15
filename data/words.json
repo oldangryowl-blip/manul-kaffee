@@ -1,0 +1,297 @@
+[
+  {
+    "id": "w_morgen",
+    "lemma": "Morgen",
+    "article": "der",
+    "gender": "m",
+    "translation": "ранок",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Morgen",
+    "emoji": "🌅",
+    "sentences": [
+      { "de": "Guten Morgen!", "uk": "Доброго ранку!" },
+      { "de": "Der Morgen ist ruhig.", "uk": "Ранок спокійний." }
+    ]
+  },
+  {
+    "id": "w_kaffee",
+    "lemma": "Kaffee",
+    "article": "der",
+    "gender": "m",
+    "translation": "кава",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": null,
+    "emoji": "☕",
+    "sentences": [
+      { "de": "Ich trinke Kaffee.", "uk": "Я п'ю каву." },
+      { "de": "Der Kaffee ist heiß.", "uk": "Кава гаряча." }
+    ]
+  },
+  {
+    "id": "w_trinken",
+    "lemma": "trinken",
+    "article": null,
+    "gender": null,
+    "translation": "пити",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "trinke", "du": "trinkst", "er_sie_es": "trinkt" },
+    "emoji": "🥤",
+    "sentences": [
+      { "de": "Ich trinke Wasser.", "uk": "Я п'ю воду." },
+      { "de": "Trinkst du Kaffee?", "uk": "Ти п'єш каву?" }
+    ]
+  },
+  {
+    "id": "w_muede",
+    "lemma": "müde",
+    "article": null,
+    "gender": null,
+    "translation": "втомлений/а",
+    "themes": ["morgen"],
+    "pos": "adjective",
+    "emoji": "😴",
+    "sentences": [
+      { "de": "Ich bin müde.", "uk": "Я втомлений/а." },
+      { "de": "Bist du müde?", "uk": "Ти втомлений/а?" }
+    ]
+  },
+  {
+    "id": "w_aufstehen",
+    "lemma": "aufstehen",
+    "article": null,
+    "gender": null,
+    "translation": "вставати",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "stehe auf", "du": "stehst auf", "er_sie_es": "steht auf" },
+    "emoji": "🛏️",
+    "sentences": [
+      { "de": "Ich stehe auf.", "uk": "Я встаю." },
+      { "de": "Wann stehst du auf?", "uk": "Коли ти встаєш?" }
+    ]
+  },
+  {
+    "id": "w_fenster",
+    "lemma": "Fenster",
+    "article": "das",
+    "gender": "n",
+    "translation": "вікно",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Fenster",
+    "emoji": "🪟",
+    "sentences": [
+      { "de": "Ich öffne das Fenster.", "uk": "Я відкриваю вікно." },
+      { "de": "Das Fenster ist offen.", "uk": "Вікно відкрите." }
+    ]
+  },
+  {
+    "id": "w_arbeit",
+    "lemma": "Arbeit",
+    "article": "die",
+    "gender": "f",
+    "translation": "робота",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Arbeiten",
+    "emoji": "💼",
+    "sentences": [
+      { "de": "Ich gehe zur Arbeit.", "uk": "Я йду на роботу." },
+      { "de": "Die Arbeit beginnt um neun.", "uk": "Робота починається о дев'ятій." }
+    ]
+  },
+  {
+    "id": "w_ruhig",
+    "lemma": "ruhig",
+    "article": null,
+    "gender": null,
+    "translation": "спокійний/а",
+    "themes": ["morgen"],
+    "pos": "adjective",
+    "emoji": "😌",
+    "sentences": [
+      { "de": "Es ist ruhig.", "uk": "Тихо/спокійно." },
+      { "de": "Der Morgen ist ruhig.", "uk": "Ранок спокійний." }
+    ]
+  },
+  {
+    "id": "w_heute",
+    "lemma": "heute",
+    "article": null,
+    "gender": null,
+    "translation": "сьогодні",
+    "themes": ["morgen"],
+    "pos": "adverb",
+    "emoji": "📅",
+    "sentences": [
+      { "de": "Heute ist Montag.", "uk": "Сьогодні понеділок." },
+      { "de": "Was machst du heute?", "uk": "Що ти робиш сьогодні?" }
+    ]
+  },
+  {
+    "id": "w_ich",
+    "lemma": "ich",
+    "article": null,
+    "gender": null,
+    "translation": "я",
+    "themes": ["morgen"],
+    "pos": "pronoun",
+    "emoji": "👤",
+    "sentences": [
+      { "de": "Ich bin hier.", "uk": "Я тут." },
+      { "de": "Ich trinke Kaffee.", "uk": "Я п'ю каву." }
+    ]
+  },
+  {
+    "id": "w_gut",
+    "lemma": "gut",
+    "article": null,
+    "gender": null,
+    "translation": "добре / гарний",
+    "themes": ["morgen"],
+    "pos": "adjective",
+    "emoji": "👍",
+    "sentences": [
+      { "de": "Das ist gut.", "uk": "Це добре." },
+      { "de": "Guten Morgen!", "uk": "Доброго ранку!" }
+    ]
+  },
+  {
+    "id": "w_tag",
+    "lemma": "Tag",
+    "article": "der",
+    "gender": "m",
+    "translation": "день",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Tage",
+    "emoji": "☀️",
+    "sentences": [
+      { "de": "Guten Tag!", "uk": "Добрий день!" },
+      { "de": "Der Tag beginnt.", "uk": "День починається." }
+    ]
+  },
+  {
+    "id": "w_beginnen",
+    "lemma": "beginnen",
+    "article": null,
+    "gender": null,
+    "translation": "починати(ся)",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "beginne", "du": "beginnst", "er_sie_es": "beginnt" },
+    "emoji": "▶️",
+    "sentences": [
+      { "de": "Der Tag beginnt.", "uk": "День починається." },
+      { "de": "Wann beginnt die Arbeit?", "uk": "Коли починається робота?" }
+    ]
+  },
+  {
+    "id": "w_fruehstueck",
+    "lemma": "Frühstück",
+    "article": "das",
+    "gender": "n",
+    "translation": "сніданок",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Frühstücke",
+    "emoji": "🍳",
+    "sentences": [
+      { "de": "Das Frühstück ist fertig.", "uk": "Сніданок готовий." },
+      { "de": "Ich esse Frühstück.", "uk": "Я їм сніданок." }
+    ]
+  },
+  {
+    "id": "w_essen",
+    "lemma": "essen",
+    "article": null,
+    "gender": null,
+    "translation": "їсти",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "esse", "du": "isst", "er_sie_es": "isst" },
+    "emoji": "🍽️",
+    "sentences": [
+      { "de": "Ich esse Brot.", "uk": "Я їм хліб." },
+      { "de": "Was isst du?", "uk": "Що ти їш?" }
+    ]
+  },
+  {
+    "id": "w_wasser",
+    "lemma": "Wasser",
+    "article": "das",
+    "gender": "n",
+    "translation": "вода",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": null,
+    "emoji": "💧",
+    "sentences": [
+      { "de": "Ich trinke Wasser.", "uk": "Я п'ю воду." },
+      { "de": "Das Wasser ist kalt.", "uk": "Вода холодна." }
+    ]
+  },
+  {
+    "id": "w_brot",
+    "lemma": "Brot",
+    "article": "das",
+    "gender": "n",
+    "translation": "хліб",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Brote",
+    "emoji": "🍞",
+    "sentences": [
+      { "de": "Ich esse Brot.", "uk": "Я їм хліб." },
+      { "de": "Das Brot ist frisch.", "uk": "Хліб свіжий." }
+    ]
+  },
+  {
+    "id": "w_gehen",
+    "lemma": "gehen",
+    "article": null,
+    "gender": null,
+    "translation": "іти / ходити",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "gehe", "du": "gehst", "er_sie_es": "geht" },
+    "emoji": "🚶",
+    "sentences": [
+      { "de": "Ich gehe zur Arbeit.", "uk": "Я йду на роботу." },
+      { "de": "Wohin gehst du?", "uk": "Куди ти йдеш?" }
+    ]
+  },
+  {
+    "id": "w_Zeit",
+    "lemma": "Zeit",
+    "article": "die",
+    "gender": "f",
+    "translation": "час",
+    "themes": ["morgen"],
+    "pos": "noun",
+    "plural": "die Zeiten",
+    "emoji": "⏰",
+    "sentences": [
+      { "de": "Ich habe keine Zeit.", "uk": "У мене немає часу." },
+      { "de": "Es ist Zeit.", "uk": "Час настав." }
+    ]
+  },
+  {
+    "id": "w_schlafen",
+    "lemma": "schlafen",
+    "article": null,
+    "gender": null,
+    "translation": "спати",
+    "themes": ["morgen"],
+    "pos": "verb",
+    "conjugation": { "ich": "schlafe", "du": "schläfst", "er_sie_es": "schläft" },
+    "emoji": "😴",
+    "sentences": [
+      { "de": "Ich schlafe gut.", "uk": "Я добре сплю." },
+      { "de": "Schläfst du noch?", "uk": "Ти ще спиш?" }
+    ]
+  }
+]

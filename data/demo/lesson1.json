@@ -1,0 +1,26 @@
+{
+  "lessonNumber": 1,
+  "theme": "morgen",
+  "wordIds": ["w_kaffee"],
+  "story": {
+    "title_uk": "Перша кава",
+    "lines": [
+      { "de": "Manul trinkt Kaffee.", "uk": "Манул п'є каву.", "word_ids": ["w_kaffee"] },
+      { "de": "Der Kaffee ist gut.", "uk": "Кава смачна.", "word_ids": ["w_kaffee"] },
+      { "de": "Kaffee!", "uk": "Кава!", "word_ids": ["w_kaffee"] }
+    ]
+  },
+  "dialog": {
+    "turns": [
+      { "speaker": "manul", "de": "Guten Morgen!", "uk": "Доброго ранку!" },
+      { "speaker": "manul", "de": "Ich trinke Kaffee. Und du?", "uk": "Я п'ю каву. А ти?" },
+      {
+        "speaker": "question",
+        "question_de": "Was trinkt Manul?",
+        "question_uk": "Що п'є Манул?",
+        "expected_de": "Kaffee",
+        "word_ids": ["w_kaffee"]
+      }
+    ]
+  }
+}
