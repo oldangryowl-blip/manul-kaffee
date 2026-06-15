@@ -1,4 +1,4 @@
-const CACHE_NAME = 'manul-kaffee-v2';
+const CACHE_NAME = 'manul-kaffee-v3';
 // Determine base path dynamically for GitHub Pages compatibility
 const BASE = self.registration.scope;
 const STATIC_ASSETS = [
