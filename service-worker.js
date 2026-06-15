@@ -1,23 +1,25 @@
 const CACHE_NAME = 'manul-kaffee-v2';
+// Determine base path dynamically for GitHub Pages compatibility
+const BASE = self.registration.scope;
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/db.js',
-  '/js/gemini.js',
-  '/js/srs.js',
-  '/js/lesson.js',
-  '/js/app.js',
-  '/manifest.json',
-  '/images/icon-192.png',
-  '/images/icon-512.png',
-  '/images/icon-maskable-512.png',
-  '/data/words.json',
-  '/data/themes.json',
-  '/data/demo/lesson1.json',
-  '/data/demo/lesson2.json',
-  '/data/demo/lesson3.json'
-];
+  '',
+  'index.html',
+  'css/style.css',
+  'js/db.js',
+  'js/gemini.js',
+  'js/srs.js',
+  'js/lesson.js',
+  'js/app.js',
+  'manifest.json',
+  'images/icon-192.png',
+  'images/icon-512.png',
+  'images/icon-maskable-512.png',
+  'data/words.json',
+  'data/themes.json',
+  'data/demo/lesson1.json',
+  'data/demo/lesson2.json',
+  'data/demo/lesson3.json'
+].map(path => BASE + path);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -64,7 +66,7 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Offline fallback for navigation
         if (event.request.mode === 'navigate') {
-          return caches.match('/index.html');
+          return caches.match(BASE + 'index.html');
         }
       });
     })

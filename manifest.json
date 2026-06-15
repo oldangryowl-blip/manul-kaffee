@@ -2,13 +2,13 @@
   "name": "Манул сказав: Kaffee",
   "short_name": "Manul Kaffee",
   "description": "Вивчай німецьку з Манулом Білящем — без тиску, без оцінок, через історії та гумор",
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1a1a2e",
   "theme_color": "#e8a87c",
   "lang": "uk",
-  "scope": "/",
+  "scope": ".",
   "icons": [
     {
       "src": "images/icon-192.png",
@@ -34,7 +34,7 @@
   "shortcuts": [
     {
       "name": "Почати урок",
-      "url": "/index.html#lesson",
+      "url": "index.html#lesson",
       "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
     }
   ]
